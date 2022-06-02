@@ -32,6 +32,11 @@ $routes->setAutoRoute(true);
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
+$routes->get('/admin', 'Admin/Dashboard::index');
+$routes->get('/admin/dashboard', 'Admin/Dashboard::index');
+$routes->get('/admin/peserta', 'Admin/Peserta::index');
+$routes->get('/admin/dashboard', 'Admin/Dashboard::index');
+
 //$routes->resource('peserta');
 
 /*
