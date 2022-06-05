@@ -6,7 +6,7 @@ use CodeIgniter\Entity;
 class Peserta extends Entity
 {
     protected $attributes = [
-        'kode' => null,
+        'kode_peserta' => null,
         'nama' => null,
         'jk' => null,
         'ttl' => null,
@@ -25,7 +25,7 @@ class Peserta extends Entity
     ];
     public function setKode(string $kode):self
     {
-        $this->attributes['kode'] = $kode;
+        $this->attributes['kode_peserta'] = $kode;
         return $this;
     }
     public function setNama(string $nama):self

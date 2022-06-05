@@ -18,7 +18,7 @@
                             <li><a href="javascript:void(0);"><i class="material-icons">shopping_cart</i>Sales</a></li>
                             <li><a href="javascript:void(0);"><i class="material-icons">favorite</i>Likes</a></li>
                             <li role="separator" class="divider"></li>
-                            <li><a href="javascript:void(0);"><i class="material-icons">input</i>Sign Out</a></li>
+                            <li><a href="<?=site_url('login/logout')?>"><i class="material-icons">input</i>Sign Out</a></li>
                         </ul>
                     </div>
                 </div>
@@ -28,49 +28,42 @@
             <div class="menu">
                 <ul class="list">
                     <li class="header">MAIN NAVIGATION</li>
-                    <li>
+                    <li class="<?=($AttributePage['request']->uri->getSegment(2) == '' ? 'active': '')?>">
                         <a href="<?=base_url('admin')?>">
                             <i class="material-icons">home</i>
                             <span>Beranda</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">view_list</i>
                             <span>Data Master</span>
                         </a>
                         <ul class="ml-menu">
                             <li>
-                                <a href="<?=base_url('admin/importmaster')?>">Import Data Master</a>
+                                <a href="<?=site_url('admin/importmaster')?>">Import Data Master</a>
                             </li>
                             <li class="active">
-                                <a href="<?=base_url()?>assets/pages/tables/jquery-datatable.html">Data Sekolah</a>
+                                <a href="<?=site_url('admin/datasekolah')?>">Data Sekolah</a>
                             </li>
                         </ul>
                     </li>
-                    <li>
+                    <li class="<?=($AttributePage['request']->uri->getSegment(2) == 'peserta' ? 'active': '')?>">
                         <a href="<?=site_url('admin/peserta')?>">
                             <i class="material-icons">people</i>
                             <span>Peserta</span>
                         </a>
                     </li>
-                    <li class="header">LABELS</li>
-                    <li>
-                        <a href="javascript:void(0);">
-                            <i class="material-icons col-red">donut_large</i>
-                            <span>Important</span>
+                    <li class="<?=($AttributePage['request']->uri->getSegment(2) == 'users' ? 'active': '')?>">
+                        <a href="<?=site_url('admin/users')?>">
+                            <i class="material-icons">people</i>
+                            <span>Manajemen User</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="javascript:void(0);">
-                            <i class="material-icons col-amber">donut_large</i>
-                            <span>Warning</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0);">
-                            <i class="material-icons col-light-blue">donut_large</i>
-                            <span>Information</span>
+                    <li class="<?=($AttributePage['request']->uri->getSegment(2) == 'pengaturan' ? 'active': '')?>">
+                        <a href="<?=site_url('admin/pengaturan')?>">
+                            <i class="material-icons">settings</i>
+                            <span>Pengaturan</span>
                         </a>
                     </li>
                 </ul>

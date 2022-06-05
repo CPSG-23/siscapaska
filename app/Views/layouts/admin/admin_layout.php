@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <title>Jquery DataTable | Bootstrap Based Admin Template - Material Design</title>
     <!-- Favicon-->
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="<?=base_url('favicon.ico')?>" type="image/x-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">
@@ -29,25 +29,11 @@
 
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="<?=base_url('assets/css/themes/all-themes.css')?>" rel="stylesheet" />
+    
 </head>
 
 <body class="theme-red">
     <!-- Page Loader -->
-    <div class="page-loader-wrapper">
-        <div class="loader">
-            <div class="preloader">
-                <div class="spinner-layer pl-red">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="circle-clipper right">
-                        <div class="circle"></div>
-                    </div>
-                </div>
-            </div>
-            <p>Please wait...</p>
-        </div>
-    </div>
     <!-- #END# Page Loader -->
     <!-- Overlay For Sidebars -->
     <div class="overlay"></div>
@@ -85,6 +71,7 @@
 
     <!-- Jquery DataTable Plugin Js -->
     <script src="<?=base_url('assets/plugins/jquery-datatable/jquery.dataTables.js')?>"></script>
+    <script src="<?=base_url('assets/plugins/editable-table/mindmup-editabletable.js')?>"></script>
     <script src="<?=base_url('assets/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js')?>"></script>
     <script src="<?=base_url('assets/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js')?>"></script>
     <script src="<?=base_url('assets/plugins/jquery-datatable/extensions/export/buttons.flash.min.js')?>"></script>
@@ -96,10 +83,14 @@
 
     <!-- Custom Js -->
     <script src="<?=base_url('assets/js/admin.js')?>"></script>
+    <script>
+        let siteUrl = '<?=site_url()?>';
+    </script>
     <script src="<?=base_url('assets/js/pages/tables/jquery-datatable.js')?>"></script>
 
     <!-- Demo Js -->
     <script src="<?=base_url('assets/js/demo.js')?>"></script>
+    
 </body>
 
 </html>
