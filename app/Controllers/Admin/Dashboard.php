@@ -22,9 +22,9 @@ class Dashboard extends BaseController
     private function attributePage()
 	{
 		return  [
-			'title' => 'LigatCode | Admin/Peserta',
+			'title' => 'Siscapaska | Admin/Peserta',
             'request' => \Config\Services::request(),
-			'app' => 'LigatCode',
+			'app' => 'SISCAPASKA',
 		];
     }
     public function index()

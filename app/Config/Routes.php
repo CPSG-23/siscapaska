@@ -38,6 +38,7 @@ $routes->get('/admin/peserta', 'Admin/Peserta::index', ['filter' => 'authGuard']
 $routes->get('/admin/dashboard', 'Admin/Dashboard::index', ['filter' => 'authGuard']);
 
 $routes->get('/admin/users', 'Admin/Users::index', ['filter' => 'authGuard']);
+$routes->get('/admin/nilai/parade', 'Admin/Parade::index', ['filter' => 'authGuard']);
 
 $routes->resource('rest/peserta');
 

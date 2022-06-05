@@ -7,8 +7,8 @@
                     <img src="<?=base_url('assets/images/user.png')?>" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
-                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">John Doe</div>
-                    <div class="email">john.doe@example.com</div>
+                    <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?=session()->username?></div>
+                    <div class="email"><?=session()->hak_access?></div>
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
@@ -43,7 +43,7 @@
                             <li>
                                 <a href="<?=site_url('admin/importmaster')?>">Import Data Master</a>
                             </li>
-                            <li class="active">
+                            <li>
                                 <a href="<?=site_url('admin/datasekolah')?>">Data Sekolah</a>
                             </li>
                         </ul>
@@ -53,6 +53,32 @@
                             <i class="material-icons">people</i>
                             <span>Peserta</span>
                         </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle">
+                            <i class="material-icons">view_list</i>
+                            <span>Data Nilai</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li class="<?=($AttributePage['request']->uri->getSegment(2) == 'parade' && $AttributePage['request']->uri->getSegment(1) == 'nilai' ? 'active': '')?>">
+                                <a href="<?=site_url('admin/nilai/parade')?>">Parade</a>
+                            </li>
+                            <li>
+                                <a href="<?=site_url('admin/nilai/pbb')?>">PBB</a>
+                            </li>
+                            <li>
+                                <a href="<?=site_url('admin/nilai/wawancara')?>">Wawancara</a>
+                            </li>
+                            <li>
+                                <a href="<?=site_url('admin/nilai/samapta')?>">Samapta</a>
+                            </li>
+                            <li>
+                                <a href="<?=site_url('admin/nilai/kesehatan')?>">Kesehatan</a>
+                            </li>
+                            <li>
+                                <a href="<?=site_url('admin/nilai/kesenian')?>">Kesenian</a>
+                            </li>
+                        </ul>
                     </li>
                     <li class="<?=($AttributePage['request']->uri->getSegment(2) == 'users' ? 'active': '')?>">
                         <a href="<?=site_url('admin/users')?>">
