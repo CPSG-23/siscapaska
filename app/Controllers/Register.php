@@ -9,7 +9,9 @@ class Register extends Controller
     {
         helper(['form']);
         $data = [];
-        echo view('registerasi', $data);
+        // echo view('registerasi', $data);
+        return view('register');
+
     }
   
     public function store()
@@ -23,7 +25,7 @@ class Register extends Controller
         ];
           
         if($this->validate($rules)){
-            $userModel = new UserModel();
+            $userModel = new UsersModel();
             $data = [
                 'name'     => $this->request->getVar('name'),
                 'email'    => $this->request->getVar('email'),
