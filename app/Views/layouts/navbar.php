@@ -5,14 +5,14 @@
 						<li><a href="<?=site_url()?>">Home</a></li>
 						<li><a href="<?=site_url('about')?>">About</a></li>
 						<li><a href="<?=site_url('hasil')?>">Pengumuman</a></li>
-						<li><a href="<?=site_url('registerasi')?>">Registerasi</a></li>
+						<li><a href="#register">Registerasi</a></li>
 					</ul>
 
 					<ul id="nav-mobile" class="sidenav">
 						<li><a href="<?=site_url()?>">Home</a></li>
 						<li><a href="<?=site_url('about')?>">About</a></li>
 						<li><a href="<?=site_url('hasil')?>">Pengumuman</a></li>
-						<li><a href="<?=site_url('registerasi')?>">Registerasi</a></li>
+						<li><a href="#register">Registerasi</a></li>
 					</ul>
 					<a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 				</div>
