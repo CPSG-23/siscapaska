@@ -88,7 +88,6 @@
 
     <!-- Custom Js -->
     <script src="<?=base_url('assets/js/admin.js')?>"></script>
-    <script src="<?=base_url('assets/js/pages/examples/sign-in.js')?>"></script>
 </body>
 
 </html>
