@@ -1,15 +1,17 @@
 <?php namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
-use App\Models\SamaptaModel;
-
-class Samapta extends BaseController
+use App\Models\KesehatanModel;
+class Kesehatan extends BaseController
 {
+    /**
+	 * Class constructor.
+     */	
     protected $PageData;
     protected $Model; //Default Models Of this Controler
     protected $pager;
 	public function __construct()
 	{
-		$this->Model = new SamaptaModel(); //Set Default Models Of this Controler
+		$this->Model = new KesehatanModel(); //Set Default Models Of this Controler
         $this->PageData = $this->attributePage(); //Attribute Of Page
         $pager = \Config\Services::pager();
     }
@@ -18,7 +20,7 @@ class Samapta extends BaseController
     private function attributePage()
 	{
 		return  [
-			'title' => 'SICAPASKA | Samapta',
+			'title' => 'SICAPASKA | PBB',
 			'request' => \Config\Services::request(),
 			'app' => 'SICAPASKA',
 		];
@@ -29,11 +31,11 @@ class Samapta extends BaseController
 	{
 		$data = [
 			'AttributePage' =>$this->PageData,
-			'content' => 'Data Nilai Samapta',
+			'content' => 'Data Nilai Kesehatan',
             'data' => $this->Model->paginate(5, 'paging'),
             'pager' => $this->Model->pager
 		];
-		return view('admin/samapta/index_samapta', $data);
+		return view('admin/kesehatan/index_kesehatan', $data);
     }
 
     //READ
@@ -44,7 +46,7 @@ class Samapta extends BaseController
 			'content' => 'Read Pages',
 			'data' => $this->Model->find($id) //find on data
 		];
-		return view('admin/samapta/read_samapta', $data);
+		return view('pbb/read_pbb', $data);
     }
 
     //CREATE
@@ -53,21 +55,27 @@ class Samapta extends BaseController
 		$data = [
 			'AttributePage' => $this->PageData,
 			'content' => 'Create Pages',
-			'action' => site_url('Samapta/create_action'),
+			'action' => site_url('Pbb/create_action'),
 			'data' =>   [
 					     'id' => set_value('id'),
 					     'kode_peserta' => set_value('kode_peserta'),
-					     'lari' => set_value('lari'),
-					     'sit_up' => set_value('sit_up'),
-					     'push_up' => set_value('push_up'),
-					     'shuttle_run' => set_value('shuttle_run'),
+					     'sikap_sempurna' => set_value('sikap_sempurna'),
+					     'sikap_hormat' => set_value('sikap_hormat'),
+					     'sikap_istirahat' => set_value('sikap_istirahat'),
+					     'langkah_tegap' => set_value('langkah_tegap'),
+					     'jalan_ditempat' => set_value('jalan_ditempat'),
+					     'hadap_kanan_kiri' => set_value('hadap_kanan_kiri'),
+					     'hadap_serong_kanan_kiri' => set_value('hadap_serong_kanan_kiri'),
+					     'balik_kanan' => set_value('balik_kanan'),
+					     'langkah_lrfb' => set_value('langkah_lrfb'),
+					     'kesigapan' => set_value('kesigapan'),
 					     'total_nilai' => set_value('total_nilai'),
 					     'created_at' => set_value('created_at'),
 					     'updated_at' => set_value('updated_at'),
 					     'deleted_at' => set_value('deleted_at'),
 					    ]
 		];
-		return view('samapta/form_samapta', $data);
+		return view('pbb/form_pbb', $data);
     }
     
     //ACTION CREATE
@@ -76,10 +84,16 @@ class Samapta extends BaseController
 		$data =[
 				     'id' => $this->request->getVar('id'),
 				     'kode_peserta' => $this->request->getVar('kode_peserta'),
-				     'lari' => $this->request->getVar('lari'),
-				     'sit_up' => $this->request->getVar('sit_up'),
-				     'push_up' => $this->request->getVar('push_up'),
-				     'shuttle_run' => $this->request->getVar('shuttle_run'),
+				     'sikap_sempurna' => $this->request->getVar('sikap_sempurna'),
+				     'sikap_hormat' => $this->request->getVar('sikap_hormat'),
+				     'sikap_istirahat' => $this->request->getVar('sikap_istirahat'),
+				     'langkah_tegap' => $this->request->getVar('langkah_tegap'),
+				     'jalan_ditempat' => $this->request->getVar('jalan_ditempat'),
+				     'hadap_kanan_kiri' => $this->request->getVar('hadap_kanan_kiri'),
+				     'hadap_serong_kanan_kiri' => $this->request->getVar('hadap_serong_kanan_kiri'),
+				     'balik_kanan' => $this->request->getVar('balik_kanan'),
+				     'langkah_lrfb' => $this->request->getVar('langkah_lrfb'),
+				     'kesigapan' => $this->request->getVar('kesigapan'),
 				     'total_nilai' => $this->request->getVar('total_nilai'),
 				     'created_at' => $this->request->getVar('created_at'),
 				     'updated_at' => $this->request->getVar('updated_at'),
@@ -88,7 +102,7 @@ class Samapta extends BaseController
 				];
 		$this->Model->save($data);
 		session()->setFlashdata('message', 'Create Record Success');
-		return redirect()->to(base_url('/Samapta'));
+		return redirect()->to(base_url('/Pbb'));
     }
     
     //UPDATE
@@ -96,16 +110,16 @@ class Samapta extends BaseController
 	{
 		$dataFind = $this->Model->find($id);
 		if($dataFind == false){
-			return redirect()->to(base_url('/Samapta'));
+			return redirect()->to(base_url('/Pbb'));
 		}
 		$data = [
 			'AttributePage' => $this->PageData,
 			'content' => 'Edite Pages',
-			'action' => 'samapta/update_action',
+			'action' => 'pbb/update_action',
 			'data' => $this->Model->find($id),
         ];
 		session()->setFlashdata('message', 'Update Record Success');
-		return view('samapta/form_samapta', $data);
+		return view('pbb/form_pbb', $data);
     }
     
     //ACTION UPDATE
@@ -117,10 +131,16 @@ class Samapta extends BaseController
 			$data =[
 				     'id' => $this->request->getVar('id'),
 				     'kode_peserta' => $this->request->getVar('kode_peserta'),
-				     'lari' => $this->request->getVar('lari'),
-				     'sit_up' => $this->request->getVar('sit_up'),
-				     'push_up' => $this->request->getVar('push_up'),
-				     'shuttle_run' => $this->request->getVar('shuttle_run'),
+				     'sikap_sempurna' => $this->request->getVar('sikap_sempurna'),
+				     'sikap_hormat' => $this->request->getVar('sikap_hormat'),
+				     'sikap_istirahat' => $this->request->getVar('sikap_istirahat'),
+				     'langkah_tegap' => $this->request->getVar('langkah_tegap'),
+				     'jalan_ditempat' => $this->request->getVar('jalan_ditempat'),
+				     'hadap_kanan_kiri' => $this->request->getVar('hadap_kanan_kiri'),
+				     'hadap_serong_kanan_kiri' => $this->request->getVar('hadap_serong_kanan_kiri'),
+				     'balik_kanan' => $this->request->getVar('balik_kanan'),
+				     'langkah_lrfb' => $this->request->getVar('langkah_lrfb'),
+				     'kesigapan' => $this->request->getVar('kesigapan'),
 				     'total_nilai' => $this->request->getVar('total_nilai'),
 				     'created_at' => $this->request->getVar('created_at'),
 				     'updated_at' => $this->request->getVar('updated_at'),
@@ -129,7 +149,7 @@ class Samapta extends BaseController
             $this->Model->save($data);
 			session()->setFlashdata('message', 'Update Record Success');
 			
-			return redirect()->to(base_url('samapta'));
+			return redirect()->to(base_url('pbb'));
 		
 	}
 
@@ -140,10 +160,10 @@ class Samapta extends BaseController
 		if ($row) {
             $this->Model->delete($id);
             session()->setFlashdata('message', 'Delete Record Success');
-            return redirect()->to(base_url('/samapta'));
+            return redirect()->to(base_url('/pbb'));
         } else {
             session()->setFlashdata('message', 'Record Not Found');
-            return redirect()->to(base_url('/samapta'));
+            return redirect()->to(base_url('/pbb'));
         }
 
     }
@@ -152,10 +172,16 @@ class Samapta extends BaseController
     public function _rules() 
     {
 	$this->form_validation->set_rules('kode_peserta', 'kode peserta', 'trim|required');
-	$this->form_validation->set_rules('lari', 'lari', 'trim|required|numeric');
-	$this->form_validation->set_rules('sit_up', 'sit up', 'trim|required|numeric');
-	$this->form_validation->set_rules('push_up', 'push up', 'trim|required|numeric');
-	$this->form_validation->set_rules('shuttle_run', 'shuttle run', 'trim|required|numeric');
+	$this->form_validation->set_rules('sikap_sempurna', 'sikap sempurna', 'trim|required|numeric');
+	$this->form_validation->set_rules('sikap_hormat', 'sikap hormat', 'trim|required|numeric');
+	$this->form_validation->set_rules('sikap_istirahat', 'sikap istirahat', 'trim|required|numeric');
+	$this->form_validation->set_rules('langkah_tegap', 'langkah tegap', 'trim|required|numeric');
+	$this->form_validation->set_rules('jalan_ditempat', 'jalan ditempat', 'trim|required|numeric');
+	$this->form_validation->set_rules('hadap_kanan_kiri', 'hadap kanan kiri', 'trim|required|numeric');
+	$this->form_validation->set_rules('hadap_serong_kanan_kiri', 'hadap serong kanan kiri', 'trim|required|numeric');
+	$this->form_validation->set_rules('balik_kanan', 'balik kanan', 'trim|required|numeric');
+	$this->form_validation->set_rules('langkah_lrfb', 'langkah lrfb', 'trim|required|numeric');
+	$this->form_validation->set_rules('kesigapan', 'kesigapan', 'trim|required|numeric');
 	$this->form_validation->set_rules('total_nilai', 'total nilai', 'trim|required');
 	$this->form_validation->set_rules('created_at', 'created at', 'trim|required');
 	$this->form_validation->set_rules('updated_at', 'updated at', 'trim|required');

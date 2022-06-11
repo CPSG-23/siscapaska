@@ -1,8 +1,8 @@
 <?= $this->extend('layouts/page_layout') ?>
 <?= $this->section('content') ?>
-<div class="section no-pad-bot" id="index-banner">
-    <div class="container" id="home">
-        <div class="row">
+<div id="index-banner">
+    <div id="home" style="border-bottom-right-radius:100px 100px">
+        <div class="container row">
             <div class="col s12 m12 l8">
                 <div class="carousel carousel-slider">
                     <div class="carousel-item active">
@@ -28,28 +28,32 @@
                 </div>
             </div>
             <div class="col s12 m12 l4">
-                <div class="card-panel  light-blue accent-2">
-                <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="material-icons">person</i>
-                        </span>
-                        <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
-                    </div>
-                    <div class="input-group">
-                        <span class="input-group-addon">
-                            <i class="material-icons">lock</i>
-                        </span>
-                        <div class="form-line">
-                            <input type="password" class="form-control" name="password" placeholder="Password" required>
-                        </div>
-                    </div>
+                <div class="card-panel teal accent-1" style="border-radius: 25px;">
                     <div class="row">
-                        <div class="col-xs-8 p-t-5">
-                            <input type="checkbox" name="rememberme" id="rememberme" class="filled-in chk-col-pink">
-                            <label for="rememberme">Remember Me</label>
-                        </div>
-                        <div class="col-xs-4">
-                            <button class="btn btn-block bg-pink waves-effect" type="submit">SIGN IN</button>
+                        <form class="col s12">
+                            <div class="row">
+                                <div class="input-field">
+                                    <i class="material-icons prefix">people</i>
+                                    <input type='text' name="username" id="icon_username"/>
+                                    <label for="icon_username">Username</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field">
+                                    <i class="material-icons prefix">lock</i>
+                                    <input type='text' name="password" id="icon_username"/>
+                                    <label for="icon_password">Password</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12 card-action center">
+                                    <button class="btn blue accent-2 s6" style="border-radius: 20px; width: 100%">Login</button>
+                                </div>
+                            </div>
+                            
+                        </form>
+                        <div class="col s12 center" >
+                            <a href="#register" class="btn blue accent-2 s6" style="border-radius: 20px; width: 100%">Daftar Disini</a>
                         </div>
                     </div>
                 </div>

@@ -28,13 +28,6 @@
                                     <thead>
                                     <tr>
                                         <th width="7%">Kode</th>
-                                        <th width="8%">TB</th>
-                                        <th width="8%">BB</th>
-                                        <th width="8%">Mata</th>
-                                        <th width="9%">Bahu</th>
-                                        <th width="9%">Tangan</th>
-                                        <th width="9%">Kaki</th>
-                                        <th width="9%">Platefoot</th>
                                         <th width="9%">Total Nilai</th>
                                         <th width="15%">Action</th>
                                     </tr>
@@ -43,19 +36,12 @@
                                     <?php $start=1; foreach ($data as $value): ?>
                                         <tr>
                                             <td><?php  echo $value['kode_peserta'] ?></td>
-                                            <td><?= $value['tinggi_badan'] ?></td>
-                                            <td><?= $value['berat_badan'] ?></td>
-                                            <td><?= $value['mata'] ?></td>
-                                            <td><?= $value['bahu'] ?></td>
-                                            <td><?= $value['tangan'] ?></td>
-                                            <td><?= $value['kaki'] ?></td>
-                                            <td><?= $value['platefoot'] ?></td>
-                                            <td><?= (($value['tinggi_badan']+$value['berat_badan']+$value['mata']+$value['bahu']+$value['tangan']+$value['kaki']+$value['platefoot'])/100)*0.15 ?></td>
+                                            <td><?php  echo $value['total_nilai'] ?></td>
                                             <td>
                                                 <span class="float-right">
-                                                    <a type="button" class="btn btn-sm btn-primary" href="<?= base_url('admin/users/read/'.$value['id'] )?>"><i class='material-icons'>info</i></a>
-                                                    <a type="button" class="btn btn-sm btn-warning" href="<?= base_url('admin/users/update/'.$value['id'] )?>"><i class='material-icons'>edit</i></a>
-                                                    <a type="button" class="btn btn-sm btn-danger" href="<?= base_url('admin/users/delete/'.$value['id'] )?>" onclick="javascript: return confirm('Delete \nAre You Sure ?')"><i class='material-icons'>delete</i></a>
+                                                    <a type="button" class="btn btn-sm btn-primary" href="<?= base_url('admin/kesehatan/read/'.$value['id'] )?>"><i class='material-icons'>info</i></a>
+                                                    <a type="button" class="btn btn-sm btn-warning" href="<?= base_url('admin/kesehatan/update/'.$value['id'] )?>"><i class='material-icons'>edit</i></a>
+                                                    <a type="button" class="btn btn-sm btn-danger" href="<?= base_url('admin/kesehatan/delete/'.$value['id'] )?>" onclick="javascript: return confirm('Delete \nAre You Sure ?')"><i class='material-icons'>delete</i></a>
                                                 </span>
                                             </td>
                                         </tr>

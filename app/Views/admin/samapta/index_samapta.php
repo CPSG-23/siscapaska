@@ -27,35 +27,29 @@
                                 <table class="table table-hover table-bordered table-striped table-sm" id="mytable">
                                     <thead>
                                     <tr>
-                                        <th width="7%">Kode</th>
-                                        <th width="8%">TB</th>
-                                        <th width="8%">BB</th>
-                                        <th width="8%">Mata</th>
-                                        <th width="9%">Bahu</th>
-                                        <th width="9%">Tangan</th>
-                                        <th width="9%">Kaki</th>
-                                        <th width="9%">Platefoot</th>
-                                        <th width="9%">Total Nilai</th>
-                                        <th width="15%">Action</th>
+                                        <th width="5%">Kode</th>
+                                        <th width="15%">Lari</th>
+                                        <th width="15%">Sit Up</th>
+                                        <th width="15%">Push Up</th>
+                                        <th width="15%">Shuttle RUN</th>
+                                        <th width="15%">Total Nilai</th>
+                                        <th width="20%">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <?php $start=1; foreach ($data as $value): ?>
                                         <tr>
                                             <td><?php  echo $value['kode_peserta'] ?></td>
-                                            <td><?= $value['tinggi_badan'] ?></td>
-                                            <td><?= $value['berat_badan'] ?></td>
-                                            <td><?= $value['mata'] ?></td>
-                                            <td><?= $value['bahu'] ?></td>
-                                            <td><?= $value['tangan'] ?></td>
-                                            <td><?= $value['kaki'] ?></td>
-                                            <td><?= $value['platefoot'] ?></td>
-                                            <td><?= (($value['tinggi_badan']+$value['berat_badan']+$value['mata']+$value['bahu']+$value['tangan']+$value['kaki']+$value['platefoot'])/100)*0.15 ?></td>
+                                            <td><?= $value['lari'] ?></td>
+                                            <td><?= $value['sit_up'] ?></td>
+                                            <td><?= $value['push_up'] ?></td>
+                                            <td><?= $value['shutle_run'] ?></td>
+                                            <td><?= (($value['lari']+$value['push_up']+$value['sit_up']+$value['shuttle_run'])/100)*0.15 ?></td>
                                             <td>
                                                 <span class="float-right">
-                                                    <a type="button" class="btn btn-sm btn-primary" href="<?= base_url('admin/users/read/'.$value['id'] )?>"><i class='material-icons'>info</i></a>
-                                                    <a type="button" class="btn btn-sm btn-warning" href="<?= base_url('admin/users/update/'.$value['id'] )?>"><i class='material-icons'>edit</i></a>
-                                                    <a type="button" class="btn btn-sm btn-danger" href="<?= base_url('admin/users/delete/'.$value['id'] )?>" onclick="javascript: return confirm('Delete \nAre You Sure ?')"><i class='material-icons'>delete</i></a>
+                                                    <a type="button" class="btn btn-sm btn-primary" href="<?= base_url('admin/samapta/read/'.$value['id'] )?>"><i class='material-icons'>info</i></a>
+                                                    <a type="button" class="btn btn-sm btn-warning" href="<?= base_url('admin/samapta/update/'.$value['id'] )?>"><i class='material-icons'>edit</i></a>
+                                                    <a type="button" class="btn btn-sm btn-danger" href="<?= base_url('admin/samapta/delete/'.$value['id'] )?>" onclick="javascript: return confirm('Delete \nAre You Sure ?')"><i class='material-icons'>delete</i></a>
                                                 </span>
                                             </td>
                                         </tr>

@@ -39,6 +39,11 @@ $routes->get('/admin/dashboard', 'Admin/Dashboard::index', ['filter' => 'authGua
 
 $routes->get('/admin/users', 'Admin/Users::index', ['filter' => 'authGuard']);
 $routes->get('/admin/nilai/parade', 'Admin/Parade::index', ['filter' => 'authGuard']);
+$routes->get('/admin/nilai/pbb', 'Admin/Pbb::index', ['filter' => 'authGuard']);
+$routes->get('/admin/nilai/samapta', 'Admin/Samapta::index', ['filter' => 'authGuard']);
+$routes->get('/admin/nilai/wawancara', 'Admin/Wawancara::index', ['filter' => 'authGuard']);
+$routes->get('/admin/nilai/kesehatan', 'Admin/Kesehatan::index', ['filter' => 'authGuard']);
+$routes->get('/admin/nilai/kesenian', 'Admin/Kesenian::index', ['filter' => 'authGuard']);
 
 $routes->resource('rest/peserta');
 

@@ -19,7 +19,7 @@
                             <h1><?= $content; ?></h1>
                             </h2>
                             <ul class="header-dropdown m-r--5">
-                                <li><a href="<?= base_url('admin/users/create') ?>" class="btn btn-sm btn-primary">CREATE</a></li>
+                                <li><a href="<?= base_url('admin/pbb/create') ?>" class="btn btn-sm btn-primary">CREATE</a></li>
                             </ul>
                         </div>
                         <div class="body">
@@ -28,13 +28,16 @@
                                     <thead>
                                     <tr>
                                         <th width="7%">Kode</th>
-                                        <th width="8%">TB</th>
-                                        <th width="8%">BB</th>
-                                        <th width="8%">Mata</th>
-                                        <th width="9%">Bahu</th>
-                                        <th width="9%">Tangan</th>
-                                        <th width="9%">Kaki</th>
-                                        <th width="9%">Platefoot</th>
+                                        <th width="8%">Sikap Sempurna</th>
+                                        <th width="8%">Sikap Hormat</th>
+                                        <th width="8%">Sikap Isitrahat</th>
+                                        <th width="9%">Langkah Tegap</th>
+                                        <th width="9%">Jalan Ditempat</th>
+                                        <th width="9%">Hadap Kanan Kiri</th>
+                                        <th width="9%">Serong Kanan Kiri</th>
+                                        <th width="9%">Balik Kanan</th>
+                                        <th width="9%">Langkah LRFB</th>
+                                        <th width="9%">Kesigapan</th>
                                         <th width="9%">Total Nilai</th>
                                         <th width="15%">Action</th>
                                     </tr>
@@ -43,19 +46,19 @@
                                     <?php $start=1; foreach ($data as $value): ?>
                                         <tr>
                                             <td><?php  echo $value['kode_peserta'] ?></td>
-                                            <td><?= $value['tinggi_badan'] ?></td>
-                                            <td><?= $value['berat_badan'] ?></td>
-                                            <td><?= $value['mata'] ?></td>
-                                            <td><?= $value['bahu'] ?></td>
-                                            <td><?= $value['tangan'] ?></td>
-                                            <td><?= $value['kaki'] ?></td>
-                                            <td><?= $value['platefoot'] ?></td>
-                                            <td><?= (($value['tinggi_badan']+$value['berat_badan']+$value['mata']+$value['bahu']+$value['tangan']+$value['kaki']+$value['platefoot'])/100)*0.15 ?></td>
+                                            <td><?= $value['sikap_sempurna'] ?></td>
+                                            <td><?= $value['sikap_hormat'] ?></td>
+                                            <td><?= $value['sikap_istirahat'] ?></td>
+                                            <td><?= $value['langkah_tegap'] ?></td>
+                                            <td><?= $value['jalan_ditempat'] ?></td>
+                                            <td><?= $value['hadap_kanan_kiri'] ?></td>
+                                            <td><?= $value['hadap_serong_kanan_kiri'] ?></td>
+                                            <td>0</td>
                                             <td>
                                                 <span class="float-right">
-                                                    <a type="button" class="btn btn-sm btn-primary" href="<?= base_url('admin/users/read/'.$value['id'] )?>"><i class='material-icons'>info</i></a>
-                                                    <a type="button" class="btn btn-sm btn-warning" href="<?= base_url('admin/users/update/'.$value['id'] )?>"><i class='material-icons'>edit</i></a>
-                                                    <a type="button" class="btn btn-sm btn-danger" href="<?= base_url('admin/users/delete/'.$value['id'] )?>" onclick="javascript: return confirm('Delete \nAre You Sure ?')"><i class='material-icons'>delete</i></a>
+                                                    <a type="button" class="btn btn-sm btn-primary" href="<?= base_url('admin/pbb/read/'.$value['id'] )?>"><i class='material-icons'>info</i></a>
+                                                    <a type="button" class="btn btn-sm btn-warning" href="<?= base_url('admin/pbb/update/'.$value['id'] )?>"><i class='material-icons'>edit</i></a>
+                                                    <a type="button" class="btn btn-sm btn-danger" href="<?= base_url('admin/pbb/delete/'.$value['id'] )?>" onclick="javascript: return confirm('Delete \nAre You Sure ?')"><i class='material-icons'>delete</i></a>
                                                 </span>
                                             </td>
                                         </tr>
