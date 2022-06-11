@@ -38,44 +38,23 @@ class Kesehatan extends BaseController
 		return view('admin/kesehatan/index_kesehatan', $data);
     }
 
-    //READ
-    public function read($id)
-	{
-		$data = [
-			'AttributePage' => $this->PageData,
-			'content' => 'Read Pages',
-			'data' => $this->Model->find($id) //find on data
-		];
-		return view('pbb/read_pbb', $data);
-    }
-
     //CREATE
     public function create()
 	{
 		$data = [
 			'AttributePage' => $this->PageData,
-			'content' => 'Create Pages',
+			'content' => 'Create Data Kesehatan',
 			'action' => site_url('Pbb/create_action'),
 			'data' =>   [
 					     'id' => set_value('id'),
 					     'kode_peserta' => set_value('kode_peserta'),
-					     'sikap_sempurna' => set_value('sikap_sempurna'),
-					     'sikap_hormat' => set_value('sikap_hormat'),
-					     'sikap_istirahat' => set_value('sikap_istirahat'),
-					     'langkah_tegap' => set_value('langkah_tegap'),
-					     'jalan_ditempat' => set_value('jalan_ditempat'),
-					     'hadap_kanan_kiri' => set_value('hadap_kanan_kiri'),
-					     'hadap_serong_kanan_kiri' => set_value('hadap_serong_kanan_kiri'),
-					     'balik_kanan' => set_value('balik_kanan'),
-					     'langkah_lrfb' => set_value('langkah_lrfb'),
-					     'kesigapan' => set_value('kesigapan'),
 					     'total_nilai' => set_value('total_nilai'),
 					     'created_at' => set_value('created_at'),
 					     'updated_at' => set_value('updated_at'),
 					     'deleted_at' => set_value('deleted_at'),
 					    ]
 		];
-		return view('pbb/form_pbb', $data);
+		return view('admin/kesehatan/form_kesehatan', $data);
     }
     
     //ACTION CREATE
@@ -84,16 +63,6 @@ class Kesehatan extends BaseController
 		$data =[
 				     'id' => $this->request->getVar('id'),
 				     'kode_peserta' => $this->request->getVar('kode_peserta'),
-				     'sikap_sempurna' => $this->request->getVar('sikap_sempurna'),
-				     'sikap_hormat' => $this->request->getVar('sikap_hormat'),
-				     'sikap_istirahat' => $this->request->getVar('sikap_istirahat'),
-				     'langkah_tegap' => $this->request->getVar('langkah_tegap'),
-				     'jalan_ditempat' => $this->request->getVar('jalan_ditempat'),
-				     'hadap_kanan_kiri' => $this->request->getVar('hadap_kanan_kiri'),
-				     'hadap_serong_kanan_kiri' => $this->request->getVar('hadap_serong_kanan_kiri'),
-				     'balik_kanan' => $this->request->getVar('balik_kanan'),
-				     'langkah_lrfb' => $this->request->getVar('langkah_lrfb'),
-				     'kesigapan' => $this->request->getVar('kesigapan'),
 				     'total_nilai' => $this->request->getVar('total_nilai'),
 				     'created_at' => $this->request->getVar('created_at'),
 				     'updated_at' => $this->request->getVar('updated_at'),
@@ -102,7 +71,7 @@ class Kesehatan extends BaseController
 				];
 		$this->Model->save($data);
 		session()->setFlashdata('message', 'Create Record Success');
-		return redirect()->to(base_url('/Pbb'));
+		return redirect()->to(base_url('/admin/kesehatan'));
     }
     
     //UPDATE
@@ -115,11 +84,11 @@ class Kesehatan extends BaseController
 		$data = [
 			'AttributePage' => $this->PageData,
 			'content' => 'Edite Pages',
-			'action' => 'pbb/update_action',
+			'action' => 'admin/kesehatan/update_action',
 			'data' => $this->Model->find($id),
         ];
 		session()->setFlashdata('message', 'Update Record Success');
-		return view('pbb/form_pbb', $data);
+		return view('admin/kesehatan/form_kesehatan', $data);
     }
     
     //ACTION UPDATE
@@ -131,16 +100,6 @@ class Kesehatan extends BaseController
 			$data =[
 				     'id' => $this->request->getVar('id'),
 				     'kode_peserta' => $this->request->getVar('kode_peserta'),
-				     'sikap_sempurna' => $this->request->getVar('sikap_sempurna'),
-				     'sikap_hormat' => $this->request->getVar('sikap_hormat'),
-				     'sikap_istirahat' => $this->request->getVar('sikap_istirahat'),
-				     'langkah_tegap' => $this->request->getVar('langkah_tegap'),
-				     'jalan_ditempat' => $this->request->getVar('jalan_ditempat'),
-				     'hadap_kanan_kiri' => $this->request->getVar('hadap_kanan_kiri'),
-				     'hadap_serong_kanan_kiri' => $this->request->getVar('hadap_serong_kanan_kiri'),
-				     'balik_kanan' => $this->request->getVar('balik_kanan'),
-				     'langkah_lrfb' => $this->request->getVar('langkah_lrfb'),
-				     'kesigapan' => $this->request->getVar('kesigapan'),
 				     'total_nilai' => $this->request->getVar('total_nilai'),
 				     'created_at' => $this->request->getVar('created_at'),
 				     'updated_at' => $this->request->getVar('updated_at'),
