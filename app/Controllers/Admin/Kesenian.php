@@ -32,7 +32,7 @@ class Kesenian extends BaseController
 	{
 		$data = [
 			'AttributePage' =>$this->PageData,
-			'content' => 'Create Pages',
+			'content' => 'Data Kesenian',
             'data' => $this->Model->paginate(5, 'paging'),
             'pager' => $this->Model->pager
 		];
@@ -47,7 +47,7 @@ class Kesenian extends BaseController
 			'content' => 'Read Pages',
 			'data' => $this->Model->find($id) //find on data
 		];
-		return view('kesenian/read_kesenian', $data);
+		return view('admin/kesenian/read_kesenian', $data);
     }
 
     //CREATE
@@ -55,7 +55,7 @@ class Kesenian extends BaseController
 	{
 		$data = [
 			'AttributePage' => $this->PageData,
-			'content' => 'Create Pages',
+			'content' => 'Data Kesenian',
 			'action' => site_url('Kesenian/create_action'),
 			'data' =>   [
 					     'id' => set_value('id'),
@@ -70,7 +70,7 @@ class Kesenian extends BaseController
 					     'deleted_at' => set_value('deleted_at'),
 					    ]
 		];
-		return view('kesenian/form_kesenian', $data);
+		return view('admin/kesenian/form_kesenian', $data);
     }
     
     //ACTION CREATE
@@ -99,11 +99,11 @@ class Kesenian extends BaseController
 	{
 		$dataFind = $this->Model->find($id);
 		if($dataFind == false){
-			return redirect()->to(base_url('/Kesenian'));
+			return redirect()->to(base_url('admin/kesenian'));
 		}
 		$data = [
 			'AttributePage' => $this->PageData,
-			'content' => 'Edite Pages',
+			'content' => 'Edit Kesenian',
 			'action' => 'kesenian/update_action',
 			'data' => $this->Model->find($id),
         ];
