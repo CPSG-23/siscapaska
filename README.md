@@ -7,6 +7,6 @@ CAPSTONE PROJECT MSIB2
 > 3. Rekapitulasi Data
 > 4. Registrasi
 # Fitur yang diharapkan di bagian backend
-> 1. Logim page
+> 1. Login page
 > 2. Crud
 > 3. Laporan

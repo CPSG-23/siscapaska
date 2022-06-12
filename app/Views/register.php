@@ -2,7 +2,7 @@
 <html>
     <head><meta charset="utf-8">
         <title>Form Registrasi</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" type="text/css" href="<?=base_url('./assets/css/register/style.css')?>">
         <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     </head>
     <body>
@@ -64,7 +64,7 @@
                         <div class="title">Kontak :</div>
                         <div class="field">
                             <div class="label">Alamat Email</div>
-                            <input type="text">
+                            <input type="email">
                         </div>
                         <div class="field">
                             <div class="label">Nomor Telepon</div>
@@ -80,7 +80,7 @@
                         <div class="title">Identitas :</div>
                         <div class="field">
                             <div class="label">Tanggal Lahir</div>
-                            <input type="text">
+                            <input type="date">
                         </div>
                         <div class="field">
                             <div class="label">Jenis Kelamin</div>
@@ -103,7 +103,7 @@
                         </div>
                         <div class="field">
                             <div class="label">Password</div>
-                            <div type="password"></div>
+                            <input type="password">
                         </div>
                         <div class="field btns">
                             <button class="prev-3 prev">Kembali</button>
@@ -116,7 +116,7 @@
             </div>
 
         </div>
-        <script src="script.js"></script>
+        <script src="<?=base_url('./assets/js/register/script.js')?>"></script>
 
     </body>
 
