@@ -15,6 +15,12 @@ class KesehatanModel extends Model
         }
         return $this->db->where($this->primaryKey, $id)->first();
     }
-
+    public function getKode($kode)
+    {
+        return $this
+        ->table($this->table)
+        ->where('kode_peserta', $kode)
+        ->paginate(1);
+    }
 
 }

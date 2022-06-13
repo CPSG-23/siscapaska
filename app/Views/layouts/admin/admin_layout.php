@@ -23,7 +23,7 @@
 
     <!-- JQuery DataTable Css -->
     <link href="<?=base_url('assets/plugins/jquery-datatable/skin/bootstrap/css/dataTables.bootstrap.css')?>" rel="stylesheet">
-
+    <link href="<?=base_url('assets/plugins/bootstrap-select/css/bootstrap-select.min.css')?>" rel="stylesheet">
     <!-- Custom Css -->
     <link href="<?=base_url('assets/css/style.css')?>" rel="stylesheet">
 

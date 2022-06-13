@@ -1,6 +1,7 @@
 <?php namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Models\KesenianModel;
+use App\Models\PesertaModel;
 
 class Kesenian extends BaseController
 {
@@ -30,112 +31,65 @@ class Kesenian extends BaseController
     //INDEX 
     public function index()
 	{
+		$peserta = new PesertaModel();
 		$data = [
 			'AttributePage' =>$this->PageData,
 			'content' => 'Data Kesenian',
             'data' => $this->Model->paginate(5, 'paging'),
+			'peserta' => $peserta->getData(),
             'pager' => $this->Model->pager
 		];
 		return view('admin/kesenian/index_kesenian', $data);
     }
-
-    //READ
-    public function read($id)
-	{
-		$data = [
-			'AttributePage' => $this->PageData,
-			'content' => 'Read Pages',
-			'data' => $this->Model->find($id) //find on data
-		];
-		return view('admin/kesenian/read_kesenian', $data);
-    }
-
-    //CREATE
-    public function create()
-	{
-		$data = [
-			'AttributePage' => $this->PageData,
-			'content' => 'Data Kesenian',
-			'action' => site_url('Kesenian/create_action'),
-			'data' =>   [
-					     'id' => set_value('id'),
-					     'kode_peserta' => set_value('kode_peserta'),
-					     'menyanyi' => set_value('menyanyi'),
-					     'menari' => set_value('menari'),
-					     'alat_musik' => set_value('alat_musik'),
-					     'keterampilan_lainnya' => set_value('keterampilan_lainnya'),
-					     'total_nilai' => set_value('total_nilai'),
-					     'created_at' => set_value('created_at'),
-					     'updated_at' => set_value('updated_at'),
-					     'deleted_at' => set_value('deleted_at'),
-					    ]
-		];
-		return view('admin/kesenian/form_kesenian', $data);
-    }
-    
     //ACTION CREATE
 	public function create_action()
 	{
-		$data =[
-				     'id' => $this->request->getVar('id'),
-				     'kode_peserta' => $this->request->getVar('kode_peserta'),
-				     'menyanyi' => $this->request->getVar('menyanyi'),
-				     'menari' => $this->request->getVar('menari'),
-				     'alat_musik' => $this->request->getVar('alat_musik'),
-				     'keterampilan_lainnya' => $this->request->getVar('keterampilan_lainnya'),
-				     'total_nilai' => $this->request->getVar('total_nilai'),
-				     'created_at' => $this->request->getVar('created_at'),
-				     'updated_at' => $this->request->getVar('updated_at'),
-				     'deleted_at' => $this->request->getVar('deleted_at'),
-        
-				];
-		$this->Model->save($data);
-		session()->setFlashdata('message', 'Create Record Success');
-		return redirect()->to(base_url('/Kesenian'));
-    }
-    
-    //UPDATE
-	public function update($id)
-	{
-		$dataFind = $this->Model->find($id);
-		if($dataFind == false){
-			return redirect()->to(base_url('admin/kesenian'));
-		}
-		$data = [
-			'AttributePage' => $this->PageData,
-			'content' => 'Edit Kesenian',
-			'action' => 'kesenian/update_action',
-			'data' => $this->Model->find($id),
-        ];
-		session()->setFlashdata('message', 'Update Record Success');
-		return view('kesenian/form_kesenian', $data);
-    }
-    
-    //ACTION UPDATE
-   	public function update_action()
-	{
-		$id = $this->request->getVar('id');
-		$row = $this->Model->find(['id' => $id]);
-
+		$kesenian = new KesenianModel();
+		$dataFind = $kesenian->getKode($this->request->getVar('kode_peserta'));
+		$menyanyi = [
+			$this->request->getVar('menyanyi_suara_baik'),
+			$this->request->getVar('intonasi_lagu'),
+			$this->request->getVar('penghayatan')
+		];
+		$menari = [
+			$this->request->getVar('gerakan_gemulai'),
+			$this->request->getVar('menari_pengetahuan'),
+			$this->request->getVar('menari_penghayatan')
+		];
+		$alat_musik = [
+			$this->request->getVar('memainkan_alat_musik'),
+			$this->request->getVar('pengetahuan_alat_musik'),
+			$this->request->getVar('penghayatan_alat_musik')
+		];
+		if($dataFind == true){
+			$dataUpdate = [
+				'id' => $dataFind[0]['id'],
+				'kode_peserta' => $this->request->getVar('kode_peserta'),
+				'menyanyi' => serialize($menyanyi),
+				'menari' => serialize($menari),
+				'alat_musik' => serialize($alat_musik),
+				'keterampilan_lainnya' => $this->request->getVar('keterampilan_lainnya'),
+				'total_nilai' => 0
+			];
+			$this->Model->save($dataUpdate);
+			session()->setFlashdata('message', 'Nilai Berhasil Di Update');
+		}else{
 			$data =[
 				     'id' => $this->request->getVar('id'),
 				     'kode_peserta' => $this->request->getVar('kode_peserta'),
-				     'menyanyi' => $this->request->getVar('menyanyi'),
-				     'menari' => $this->request->getVar('menari'),
-				     'alat_musik' => $this->request->getVar('alat_musik'),
+				     'menyanyi' => serialize($menyanyi),
+				     'menari' => serialize($menari),
+					 'alat_musik' => serialize($alat_musik),
 				     'keterampilan_lainnya' => $this->request->getVar('keterampilan_lainnya'),
-				     'total_nilai' => $this->request->getVar('total_nilai'),
-				     'created_at' => $this->request->getVar('created_at'),
-				     'updated_at' => $this->request->getVar('updated_at'),
-				     'deleted_at' => $this->request->getVar('deleted_at'),
-                    ];
-            $this->Model->save($data);
-			session()->setFlashdata('message', 'Update Record Success');
-			
-			return redirect()->to(base_url('kesenian'));
-		
-	}
-
+				     'total_nilai' => 0
+        
+				];
+			$this->Model->save($data);
+			session()->setFlashdata('message', 'Create Record Success');
+			}
+		return redirect()->to(base_url('/admin/nilai/kesenian'));
+    }
+    
     //DELETE
 	public function delete($id)
 	{
@@ -143,10 +97,10 @@ class Kesenian extends BaseController
 		if ($row) {
             $this->Model->delete($id);
             session()->setFlashdata('message', 'Delete Record Success');
-            return redirect()->to(base_url('/kesenian'));
+            return redirect()->to(base_url('/admin/nilai/kesenian'));
         } else {
             session()->setFlashdata('message', 'Record Not Found');
-            return redirect()->to(base_url('/kesenian'));
+            return redirect()->to(base_url('/admin/nilai/kesenian'));
         }
 
     }
@@ -159,18 +113,10 @@ class Kesenian extends BaseController
 	$this->form_validation->set_rules('menari', 'menari', 'trim|required');
 	$this->form_validation->set_rules('alat_musik', 'alat musik', 'trim|required');
 	$this->form_validation->set_rules('keterampilan_lainnya', 'keterampilan lainnya', 'trim|required');
-	$this->form_validation->set_rules('total_nilai', 'total nilai', 'trim|required');
-	$this->form_validation->set_rules('created_at', 'created at', 'trim|required');
-	$this->form_validation->set_rules('updated_at', 'updated at', 'trim|required');
-	$this->form_validation->set_rules('deleted_at', 'deleted at', 'trim|required');
+	$this->form_validation->set_rules('total_nilai', 'total nilai', 'trim');
 
 	$this->form_validation->set_rules('id', 'id', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }
 
 }
-
-/* End of file Kesenian.php */
- /* Location: ./app/controllers/Kesenian.php */
- /* Please DO NOT modify this information : */
- /* Generated by Ligatcode Codeigniter 4 CRUD Generator 2022-06-03 12:03:32 */
