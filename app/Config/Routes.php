@@ -44,6 +44,7 @@ $routes->get('/admin/nilai/samapta', 'Admin/Samapta::index', ['filter' => 'authG
 $routes->get('/admin/nilai/wawancara', 'Admin/Wawancara::index', ['filter' => 'authGuard']);
 $routes->get('/admin/nilai/kesehatan', 'Admin/Kesehatan::index', ['filter' => 'authGuard']);
 $routes->get('/admin/nilai/kesenian', 'Admin/Kesenian::index', ['filter' => 'authGuard']);
+$routes->get('/admin/nilai/psikotes', 'Admin/Psikotes::index', ['filter' => 'authGuard']);
 
 $routes->resource('rest/peserta');
 

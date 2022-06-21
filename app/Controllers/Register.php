@@ -11,6 +11,10 @@ class Register extends Controller
         $data = [];
         echo view('registerasi', $data);
     }
+    public function create_action()
+    {
+        
+    }
   
     public function store()
     {
@@ -30,7 +34,7 @@ class Register extends Controller
                 'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
             ];
             $userModel->save($data);
-            return redirect()->to('/signin');
+            return redirect()->to('');
         }else{
             $data['validation'] = $this->validator;
             echo view('signup', $data);

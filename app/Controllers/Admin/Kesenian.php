@@ -69,7 +69,7 @@ class Kesenian extends BaseController
 				'menari' => serialize($menari),
 				'alat_musik' => serialize($alat_musik),
 				'keterampilan_lainnya' => $this->request->getVar('keterampilan_lainnya'),
-				'total_nilai' => 0
+				'total_nilai' => ($this->request->getVar('keterampilan_lainnya')+$this->request->getVar('memainkan_alat_musik')+$this->request->getVar('pengetahuan_alat_musik')+$this->request->getVar('penghayatan_alat_musik')+$this->request->getVar('gerakan_gemulai')+$this->request->getVar('menari_pengetahuan')+$this->request->getVar('menari_penghayatan')+$this->request->getVar('menyanyi_suara_baik')+$this->request->getVar('intonasi_lagu')+$this->request->getVar('penghayatan')),
 			];
 			$this->Model->save($dataUpdate);
 			session()->setFlashdata('message', 'Nilai Berhasil Di Update');
@@ -81,7 +81,7 @@ class Kesenian extends BaseController
 				     'menari' => serialize($menari),
 					 'alat_musik' => serialize($alat_musik),
 				     'keterampilan_lainnya' => $this->request->getVar('keterampilan_lainnya'),
-				     'total_nilai' => 0
+				     'total_nilai' => ($this->request->getVar('keterampilan_lainnya')+$this->request->getVar('memainkan_alat_musik')+$this->request->getVar('pengetahuan_alat_musik')+$this->request->getVar('penghayatan_alat_musik')+$this->request->getVar('gerakan_gemulai')+$this->request->getVar('menari_pengetahuan')+$this->request->getVar('menari_penghayatan')+$this->request->getVar('menyanyi_suara_baik')+$this->request->getVar('intonasi_lagu')+$this->request->getVar('penghayatan')),
         
 				];
 			$this->Model->save($data);

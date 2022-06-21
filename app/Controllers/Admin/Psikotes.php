@@ -1,8 +1,8 @@
 <?php namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
-use App\Models\KesehatanModel;
+use App\Models\PsikotesModel;
 use App\Models\PesertaModel;
-class Kesehatan extends BaseController
+class Psikotes extends BaseController
 {
     /**
 	 * Class constructor.
@@ -12,7 +12,7 @@ class Kesehatan extends BaseController
     protected $pager;
 	public function __construct()
 	{
-		$this->Model = new KesehatanModel(); //Set Default Models Of this Controler
+		$this->Model = new PsikotesModel(); //Set Default Models Of this Controler
         $this->PageData = $this->attributePage(); //Attribute Of Page
         $pager = \Config\Services::pager();
     }
@@ -33,23 +33,22 @@ class Kesehatan extends BaseController
 		$peserta = new PesertaModel();
 		$data = [
 			'AttributePage' =>$this->PageData,
-			'content' => 'Data Nilai Kesehatan',
+			'content' => 'Data Nilai Psikotes',
             'data' => $this->Model->paginate(5, 'paging'),
 			'peserta' => $peserta->getData(),
             'pager' => $this->Model->pager
 		];
-		return view('admin/kesehatan/index_kesehatan', $data);
+		return view('admin/psikotes/index_psikotes', $data);
     }
     //ACTION CREATE
 	public function create_action()
 	{
-		$kesehatan = new KesehatanModel();
-		$dataFind = $kesehatan->getKode($this->request->getVar('kode_peserta'));
+		$dataFind = $this->Model->getKode($this->request->getVar('kode_peserta'));
 		if ($dataFind == true) {
 			$dataUpdate = [
 				'id' => $dataFind[0]['id'],
 				'kode_peserta' => $this->request->getVar('kode_peserta'),
-				'total_nilai' => $this->request->getVar('nilai')
+				'nilai' => $this->request->getVar('nilai')
 			];
 			$this->Model->save($dataUpdate);
 			session()->setFlashdata('message', 'Nilai Berhasil Diubah');
@@ -57,14 +56,14 @@ class Kesehatan extends BaseController
 			$data =[
 				     'id' => $this->request->getVar('id'),
 				     'kode_peserta' => $this->request->getVar('kode_peserta'),
-				     'total_nilai' => $this->request->getVar('nilai')
+				     'nilai' => $this->request->getVar('nilai')
         
 				];
 			$this->Model->save($data);
 			session()->setFlashdata('message', 'Nilai Berhasil Disimpan');
 		}
 		
-		return redirect()->to(base_url('/admin/nilai/kesehatan'));
+		return redirect()->to(base_url('/admin/nilai/psikotes'));
     }
     //DELETE
 	public function delete($id)
@@ -73,10 +72,10 @@ class Kesehatan extends BaseController
 		if ($row) {
             $this->Model->delete($id);
             session()->setFlashdata('message', 'Delete Record Success');
-            return redirect()->to(base_url('/admin/nilai/kesehatan'));
+            return redirect()->to(base_url('/admin/nilai/psikotes'));
         } else {
             session()->setFlashdata('message', 'Record Not Found');
-            return redirect()->to(base_url('/admin/nilai/kesehatan'));
+            return redirect()->to(base_url('/admin/nilai/psikotes'));
         }
 
     }
@@ -85,7 +84,7 @@ class Kesehatan extends BaseController
     public function _rules() 
     {
 	$this->form_validation->set_rules('kode_peserta', 'kode peserta', 'trim|required');
-	$this->form_validation->set_rules('total_nilai', 'total nilai', 'trim|required');
+	$this->form_validation->set_rules('nilai', 'nilai', 'trim|required');
 	$this->form_validation->set_rules('created_at', 'created at', 'trim');
 	$this->form_validation->set_rules('updated_at', 'updated at', 'trim');
 	$this->form_validation->set_rules('deleted_at', 'deleted at', 'trim');
