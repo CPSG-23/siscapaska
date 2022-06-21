@@ -34,10 +34,10 @@ class Login extends Controller
                     'isLoggedIn' => TRUE
                 ];
                 $session->set($ses_data);
-                if($data['hak_access']=='Administrator'){
+                if($data['hak_access']=='Administrator' || $data['hak_access']=='Petugas'){
                     return redirect()->to('/admin');
                 }else{
-                    return redirect()->to('/');
+                    return redirect()->to('/myaccount');
                 }
                 
             

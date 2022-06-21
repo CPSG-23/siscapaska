@@ -34,6 +34,7 @@
                             <span>Beranda</span>
                         </a>
                     </li>
+                    <?php if(session()->hak_access == 'Administrator'):?>
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">view_list</i>
@@ -48,42 +49,60 @@
                             </li>
                         </ul>
                     </li>
+                    <?php endif;?>
                     <li class="<?=($AttributePage['request']->uri->getSegment(2) == 'peserta' ? 'active': '')?>">
                         <a href="<?=site_url('admin/peserta')?>">
                             <i class="material-icons">people</i>
                             <span>Peserta</span>
                         </a>
                     </li>
-                    <li>
+                    <li class='<?=($AttributePage['request']->uri->getSegment(2) == 'nilai' ? 'active': '')?>'>
                         <a href="javascript:void(0);" class="menu-toggle">
                             <i class="material-icons">view_list</i>
                             <span>Data Nilai</span>
                         </a>
                         <ul class="ml-menu">
-                            <li class="<?=($AttributePage['request']->uri->getSegment(2) == 'parade' && $AttributePage['request']->uri->getSegment(1) == 'nilai' ? 'active': '')?>">
+                            <li class="<?=($AttributePage['request']->uri->getSegment(2) == 'nilai' && $AttributePage['request']->uri->getSegment(3) == 'parade' ? 'active': '')?>">
                                 <a href="<?=site_url('admin/nilai/parade')?>">Parade</a>
                             </li>
-                            <li>
+                            <li class="<?=($AttributePage['request']->uri->getSegment(2) == 'nilai' && $AttributePage['request']->uri->getSegment(3) == 'pbb' ? 'active': '')?>">
                                 <a href="<?=site_url('admin/nilai/pbb')?>">PBB</a>
                             </li>
-                            <li>
-                                <a href="<?=site_url('admin/nilai/wawancara')?>">Wawancara</a>
+                            <li class="<?=($AttributePage['request']->uri->getSegment(2) == 'nilai' && $AttributePage['request']->uri->getSegment(3) == 'pbb' ? 'active': '')?>">
+                                <a href="<?=site_url('admin/nilai/psikotes')?>">Psikotes</a>
                             </li>
-                            <li>
+                            <li class="<?=($AttributePage['request']->uri->getSegment(2) == 'nilai' && $AttributePage['request']->uri->getSegment(3) == 'samapta' ? 'active': '')?>">
                                 <a href="<?=site_url('admin/nilai/samapta')?>">Samapta</a>
                             </li>
-                            <li>
+                            <li class="<?=($AttributePage['request']->uri->getSegment(2) == 'nilai' && $AttributePage['request']->uri->getSegment(3) == 'kesehatan' ? 'active': '')?>">
                                 <a href="<?=site_url('admin/nilai/kesehatan')?>">Kesehatan</a>
                             </li>
-                            <li>
+                            <li class="<?=($AttributePage['request']->uri->getSegment(2) == 'nilai' && $AttributePage['request']->uri->getSegment(3) == 'wawancara' ? 'active': '')?>">
+                                <a href="<?=site_url('admin/nilai/wawancara')?>">Wawancara</a>
+                            </li>
+                            <li class="<?=($AttributePage['request']->uri->getSegment(2) == 'nilai' && $AttributePage['request']->uri->getSegment(3) == 'kesenian' ? 'active': '')?>">
                                 <a href="<?=site_url('admin/nilai/kesenian')?>">Kesenian</a>
                             </li>
                         </ul>
                     </li>
+                    <?php if(session()->hak_access == 'Administrator'):?>
                     <li class="<?=($AttributePage['request']->uri->getSegment(2) == 'users' ? 'active': '')?>">
                         <a href="<?=site_url('admin/users')?>">
                             <i class="material-icons">people</i>
                             <span>Manajemen User</span>
+                        </a>
+                    </li>
+                    <?php endif; ?>
+                    <li class="<?=($AttributePage['request']->uri->getSegment(2) == 'sertifikat' ? 'active': '')?>">
+                        <a href="<?=site_url('admin/sertifikat')?>">
+                            <i class="material-icons">book</i>
+                            <span>Sertifikat</span>
+                        </a>
+                    </li>
+                    <li class="<?=($AttributePage['request']->uri->getSegment(2) == 'rekapitulasi' ? 'active': '')?>">
+                        <a href="<?=site_url('admin/rekapitulasi')?>">
+                            <i class="material-icons">assignment_turned_in</i>
+                            <span>Rekapitulasi</span>
                         </a>
                     </li>
                     <li class="<?=($AttributePage['request']->uri->getSegment(2) == 'pengaturan' ? 'active': '')?>">
