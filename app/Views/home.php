@@ -30,7 +30,7 @@
             <div class="col s12 m12 l4">
                 <div class="card-panel teal accent-1" style="border-radius: 25px;">
                     <div class="row">
-                        <form class="col s12">
+                        <form class="col s12" action='<?=site_url('login/loginAuth')?>' method='post'>
                             <div class="row">
                                 <div class="input-field">
                                     <i class="material-icons prefix">people</i>
@@ -64,6 +64,9 @@
         <div class='row'>
             <div class='col m6 s12'>
                 <div class="card-panel waves-effect waves-purple">
+                   <div class='card-panel red'>
+                        untuk notifikasi
+                   </div>
                     <span class='card-title'>Formulir Pendaftaran</span>
                     <form class='col s12' action='<?=site_url('register/create_action')?>' method='post'>
                         <div class="row">
@@ -72,23 +75,33 @@
                                 <label for="nama">Nama Lengkap</label>
                             </div>
                             <div class="input-field col m6 s12">
-                                <input id="nisn" type="text" class="validate" placeholder='NISN digunakan untuk Username'>
+                                <input id="nisn" type="text" name='nisn' class="validate" placeholder='NISN digunakan untuk Username' required>
                                 <label for="nisn">NISN <span style='color:red'>*Sebagai Username Anda</span></label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col m6 s12">
-                                <input id="email" type="email" class="validate" placeholder='Ex: yahya@example.com'>
+                                <input id="email" type="email" name='email' class="validate" placeholder='Ex: yahya@example.com' required>
                                 <label for="email">Email</label>
                             </div>
                             <div class="input-field col m6 s12">
-                                <input id="password" type="password" name='password' class="validate" placeholder='Mohon Diingat!'>
+                                <input id="password" type="password" name='password' class="validate" placeholder='Mohon Diingat!' required>
                                 <label for="password">Password(<span style='color:red'>Mohon Diingat!</span>)</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col m6 s12">
-                                <input id="hp" type="text" name='hp' class="validate" placeholder='Ex: +6289656729xxx'>
+                                <input id="passconf" type="password" name='passconf' class="validate" placeholder='mohon Diingat!' required>
+                                <label for="passconf">Password Confirm</label>
+                            </div>
+                            <div class="input-field col m6 s12">
+                                <input id="jk" type="text" name='jk' maxLength='1' class="validate" onkeyup='toUpper()' placeholder='Ex: L / P' required>
+                                <label for="jk">Jenis Kelamin</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col m6 s12">
+                                <input id="hp" type="text" name='hp' class="validate" placeholder='Ex: +6289656729xxx' required>
                                 <label for="hp">No. Hp</label>
                             </div>
                             <div class="input-field col m6 s12">
@@ -108,4 +121,10 @@
         </div>
     </div>
 </div>
+<script>
+    function toUpper(){
+        var x = document.getElementById('jk');
+        x.value = x.value.toUpperCase();
+    }
+</script>
 <?= $this->endSection() ?>

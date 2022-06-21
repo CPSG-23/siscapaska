@@ -22,6 +22,12 @@ class PesertaModel extends Model
         ->where('kode_peserta', $kode)
         ->paginate(1);
     }
+    public function getNisn($nisn){
+        return $this
+        ->table($this->table)
+        ->where('kode_peserta', $nisn)
+        ->paginate(1);
+    }
 
 
 }

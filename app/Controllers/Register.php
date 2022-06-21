@@ -2,6 +2,7 @@
 namespace App\Controllers;  
 use CodeIgniter\Controller;
 use App\Models\UsersModel;
+use App\Models\PesertaModel;
   
 class Register extends Controller
 {
@@ -13,7 +14,19 @@ class Register extends Controller
     }
     public function create_action()
     {
-        
+        $data =[
+            'nisn' => $this->request->getVar('nisn'),
+            'nama' => $this->request->getVar('nama'),
+            'email' => $this->request->getVar('jk'),
+            'hp' => $this->request->getVar('hp')
+       ];
+       $userModel = new UserModel();
+       $dataLogin = [
+           'username' => $this->request->getVar('nisn'),
+           'password' => password_hash($this->request->getVar('password'),PASSWORD_DEFAULT),
+           'hak_access' => 'Peserta'
+       ];
+
     }
   
     public function store()
