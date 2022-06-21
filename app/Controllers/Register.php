@@ -1,34 +1,35 @@
-<?php 
-namespace App\Controllers;  
+<?php
+
+namespace App\Controllers;
+
 use CodeIgniter\Controller;
 use App\Models\UsersModel;
 use App\Models\PesertaModel;
-  
+
 class Register extends Controller
 {
     public function index()
     {
         helper(['form']);
         $data = [];
-        echo view('registerasi', $data);
+        echo view('registrasi', $data);
     }
     public function create_action()
     {
-        $data =[
+        $data = [
             'nisn' => $this->request->getVar('nisn'),
             'nama' => $this->request->getVar('nama'),
             'email' => $this->request->getVar('jk'),
             'hp' => $this->request->getVar('hp')
-       ];
-       $userModel = new UserModel();
-       $dataLogin = [
-           'username' => $this->request->getVar('nisn'),
-           'password' => password_hash($this->request->getVar('password'),PASSWORD_DEFAULT),
-           'hak_access' => 'Peserta'
-       ];
-
+        ];
+        $userModel = new UserModel();
+        $dataLogin = [
+            'username' => $this->request->getVar('nisn'),
+            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+            'hak_access' => 'Peserta'
+        ];
     }
-  
+
     public function store()
     {
         helper(['form']);
@@ -38,8 +39,8 @@ class Register extends Controller
             'password'      => 'required|min_length[4]|max_length[50]',
             'confirmpassword'  => 'matches[password]'
         ];
-          
-        if($this->validate($rules)){
+
+        if ($this->validate($rules)) {
             $userModel = new UserModel();
             $data = [
                 'name'     => $this->request->getVar('name'),
@@ -48,11 +49,9 @@ class Register extends Controller
             ];
             $userModel->save($data);
             return redirect()->to('');
-        }else{
+        } else {
             $data['validation'] = $this->validator;
             echo view('signup', $data);
         }
-          
     }
-  
 }
