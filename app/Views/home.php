@@ -8,14 +8,14 @@
                     <div class="carousel-item active">
                         <div>
                             <h5 class="animated fadeInDownBig">
-                                Selamat Datang Di web Siscapaska Online
+                                Selamat Datang Di website SISCAPASKA Online
                             </h5>
                             <br />
                             <p class="animated slideInRight" data-delay="1s">
                                 Aplikasi Seleksi Calon Anggota Paskibraka.
                             </p>
                             <p class="animated slideInRight" data-delay="2s">
-                                Pendaftaran Seleksi Calon Anggota Paskibraka ini telah dibuka. Silahkan Segera Daftar dan lengkapi Formulir
+                                Pendaftaran Seleksi Calon Anggota Paskibraka ini telah dibuka. Segera Daftar dan lengkapi Formulir
                             </p>
                             <p class="animated flipInX" data-delay="3s">
                                 <a href="/#tentang" class="btn btn-warning nav-link">
@@ -30,7 +30,7 @@
             <div class="col s12 m12 l4">
                 <div class="card-panel teal accent-1" style="border-radius: 25px;">
                     <div class="row">
-                        <form class="col s12">
+                        <form class="col s12" action='<?=site_url('login/loginAuth')?>' method='post'>
                             <div class="row">
                                 <div class="input-field">
                                     <i class="material-icons prefix">people</i>
@@ -41,7 +41,7 @@
                             <div class="row">
                                 <div class="input-field">
                                     <i class="material-icons prefix">lock</i>
-                                    <input type='text' name="password" id="icon_username"/>
+                                    <input type='password' name="password" id="icon_username"/>
                                     <label for="icon_password">Password</label>
                                 </div>
                             </div>
@@ -61,48 +61,70 @@
         </div>
     </div>
     <div class="container" id="register">
-        <div class="row">
-            <form class="col s12">
-                <div class="row">
-                    <div class="input-field col m6 s12">
-                        <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                        <label for="first_name">First Name</label>
-                    </div>
-                    <div class="input-field col m6 s12">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">Last Name</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-                        <label for="disabled">Disabled</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="password" type="password" class="validate">
-                        <label for="password">Password</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="email" type="email" class="validate">
-                        <label for="email">Email</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col s12">
-                        This is an inline input field:
-                        <div class="input-field inline">
-                            <input id="email_inline" type="email" class="validate">
-                            <label for="email_inline">Email</label>
-                            <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+        <div class='row'>
+            <div class='col m6 s12'>
+                <div class="card-panel waves-effect waves-purple">
+                   <div class='card-panel red'>
+                        untuk notifikasi
+                   </div>
+                    <span class='card-title'>Formulir Pendaftaran</span>
+                    <form class='col s12' action='<?=site_url('register/create_action')?>' method='post'>
+                        <div class="row">
+                            <div class="input-field col m6 s12">
+                                <input placeholder="Nama Lengkap" id="nama_lengkap" type="text" name='nama' class="validate">
+                                <label for="nama">Nama Lengkap</label>
+                            </div>
+                            <div class="input-field col m6 s12">
+                                <input id="nisn" type="text" name='nisn' class="validate" placeholder='NISN digunakan untuk Username' required>
+                                <label for="nisn">NISN <span style='color:red'>*Sebagai Username Anda</span></label>
+                            </div>
                         </div>
+                        <div class="row">
+                            <div class="input-field col m6 s12">
+                                <input id="email" type="email" name='email' class="validate" placeholder='Ex: yahya@example.com' required>
+                                <label for="email">Email</label>
+                            </div>
+                            <div class="input-field col m6 s12">
+                                <input id="password" type="password" name='password' class="validate" placeholder='Mohon Diingat!' required>
+                                <label for="password">Password(<span style='color:red'>Mohon Diingat!</span>)</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col m6 s12">
+                                <input id="passconf" type="password" name='passconf' class="validate" placeholder='mohon Diingat!' required>
+                                <label for="passconf">Password Confirm</label>
+                            </div>
+                            <div class="input-field col m6 s12">
+                                <input id="jk" type="text" name='jk' maxLength='1' class="validate" onkeyup='toUpper()' placeholder='Ex: L / P' required>
+                                <label for="jk">Jenis Kelamin</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col m6 s12">
+                                <input id="hp" type="text" name='hp' class="validate" placeholder='Ex: +6289656729xxx' required>
+                                <label for="hp">No. Hp</label>
+                            </div>
+                            <div class="input-field col m6 s12">
+                                <input type="submit" value='Login' class="btn green">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class='col m6 s12' id='tentang'>
+                <div class='card-panel waves-effect waves-purple'>
+                    <div class='card-image'>
+                        <img class='col s12' src="<?=base_url('alurpendaftaran.png')?>" alt="Alur Pendaftaran">
                     </div>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
 </div>
+<script>
+    function toUpper(){
+        var x = document.getElementById('jk');
+        x.value = x.value.toUpperCase();
+    }
+</script>
 <?= $this->endSection() ?>
