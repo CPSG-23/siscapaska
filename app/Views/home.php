@@ -52,9 +52,6 @@
                             </div>
                             
                         </form>
-                        <div class="col s12 center" >
-                            <a href="#register" class="btn blue accent-2 s6" style="border-radius: 20px; width: 100%">Daftar Disini</a>
-                        </div>
                     </div>
                 </div>
             </div>
