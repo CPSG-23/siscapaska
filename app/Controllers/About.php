@@ -6,6 +6,10 @@ class About extends BaseController
 {
     public function index()
     {
-        return view('about');
+        $data = [
+            'request' => $this->request,
+            'session' => $this->session
+        ];
+        return view('tentang', $data);
     }
 }

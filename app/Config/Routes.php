@@ -45,6 +45,7 @@ $routes->get('/admin/nilai/wawancara', 'Admin/Wawancara::index', ['filter' => 'a
 $routes->get('/admin/nilai/kesehatan', 'Admin/Kesehatan::index', ['filter' => 'authGuard']);
 $routes->get('/admin/nilai/kesenian', 'Admin/Kesenian::index', ['filter' => 'authGuard']);
 $routes->get('/admin/nilai/psikotes', 'Admin/Psikotes::index', ['filter' => 'authGuard']);
+$routes->get('/admin/datasekolah', 'Admin/Sekolah::index', ['filter' => 'authGuard']);
 
 $routes->get('/myaccount', 'MyAccount::index',['filter' => 'authGuard']);
 

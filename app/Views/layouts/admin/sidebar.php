@@ -4,7 +4,7 @@
             <!-- User Info -->
             <div class="user-info">
                 <div class="image">
-                    <img src="<?=base_url('assets/images/user.png')?>" width="48" height="48" alt="User" />
+                    <img src="<?=base_url('public/assets/images/user.png')?>" width="48" height="48" alt="User" />
                 </div>
                 <div class="info-container">
                     <div class="name" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?=session()->username?></div>
@@ -35,19 +35,11 @@
                         </a>
                     </li>
                     <?php if(session()->hak_access == 'Administrator'):?>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">view_list</i>
-                            <span>Data Master</span>
+                    <li class='<?=($AttributePage['request']->uri->getSegment(2) == 'datasekolah' ? 'active': '')?>'>
+                        <a href="<?=site_url('admin/datasekolah')?>">
+                            <i class="material-icons">school</i>
+                            <span>Data Sekolah</span>
                         </a>
-                        <ul class="ml-menu">
-                            <li>
-                                <a href="<?=site_url('admin/importmaster')?>">Import Data Master</a>
-                            </li>
-                            <li>
-                                <a href="<?=site_url('admin/datasekolah')?>">Data Sekolah</a>
-                            </li>
-                        </ul>
                     </li>
                     <?php endif;?>
                     <li class="<?=($AttributePage['request']->uri->getSegment(2) == 'peserta' ? 'active': '')?>">
