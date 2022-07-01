@@ -36,7 +36,18 @@ class BaseController extends Controller
      * @var array
      */
     protected $helpers = ['html','text','form','session','url'];
-
+    protected $session;
+    protected $peserta;
+    protected $parade;
+    protected $kesehatan;
+    protected $pbb;
+    protected $psikotes;
+    protected $samapta;
+    protected $sekolah;
+    protected $sertifikat;
+    protected $wawancara;
+    protected $users;
+    protected $email;
     /**
      * Constructor.
      */
@@ -49,5 +60,16 @@ class BaseController extends Controller
 
         $this->session = \Config\Services::session();
         $this->request = \Config\Services::request();
+        $this->email = \Config\Services::email();
+        $this->peserta = new \App\Models\PesertaModel;
+        $this->parade = new  \App\Models\ParadeModel;
+        $this->kesehatan = new  \App\Models\KesehatanModel;
+        $this->pbb = new  \App\Models\PbbModel;
+        $this->psikotes = new \App\Models\PsikotesModel;
+        $this->samapta = new \App\Models\SamaptaModel;
+        $this->sekolah = new \App\Models\SekolahModel;
+        $this->sertifikat = new \App\Models\SertifikatModel;
+        $this->wawancara = new \App\Models\WawancaraModel;
+        $this->users = new \App\Models\UsersModel;
     }
 }

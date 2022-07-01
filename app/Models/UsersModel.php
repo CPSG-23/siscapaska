@@ -15,6 +15,12 @@ class UsersModel extends Model
         }
         return $this->db->where($this->primaryKey, $id)->first();
     }
+    public function getUser($nisn){
+        return $this
+        ->table($this->table)
+        ->where('username', $nisn)
+        ->paginate(1);
+    }
 
 
 }

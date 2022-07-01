@@ -39,11 +39,11 @@ class Rekapitulasi extends BaseController
     //INDEX 
     public function index()
 	{
-		$peserta = $this->db->query("CALL rekapitulasi()")->getResult();
+		$peserta = $this->db->query("SELECT * FROM v_rekapitulasi")->getResult();
 		$data = [
 			'AttributePage' =>$this->PageData,
 			'content' => 'Rekapitulasi Peserta',
-            'data' => $this->db->query("CALL rekapitulasi()")->getResult(),
+            'data' => $this->db->query("SELECT * FROM v_rekapitulasi")->getResult(),
             'pager' => $this->Model->pager
 		];
 		return view('admin/rekapitulasi/index_rekapitulasi', $data);

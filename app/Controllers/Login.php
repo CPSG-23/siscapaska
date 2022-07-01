@@ -42,19 +42,19 @@ class Login extends Controller
                 
             
             }else{
-                $session->setFlashdata('msg', 'Password salah.');
-                return redirect()->to('/login');
+                $session->setFlashdata('error', 'Login Gagal');
+                return redirect()->to('/');
             }
         }else{
-            $session->setFlashdata('msg', 'Username tidak ditemukan.');
-            return redirect()->to('/login');
+            $session->setFlashdata('error', 'Login Gagal');
+            return redirect()->to('/');
         }
     }
     public function logOut()
     {
         $session = session();
-
         $session->destroy();
+        $session->setFlashdata('success', 'Berhasil Logout');
         return redirect()->to('/');
     }
 }
