@@ -9,7 +9,11 @@
 	  <title>Home | Siscapaska</title>
       <!--Let browser know website is optimized for mobile-->
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      
+      <meta name="dicoding:email" content="ikhlaswod99@gmail.com">
+      <meta name="dicoding:email" content="Rama.4ditya3@gmail.com">
+      <meta name="dicoding:email" content="moch.yahya95@gmail.com">
+      <meta name="dicoding:email" content="f7314a306@dicoding.org">
+
 		 
     </head>
 
