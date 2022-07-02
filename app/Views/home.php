@@ -22,7 +22,7 @@
                                 Seleksi Calon Anggota Paskibraka Kota Cirebon telah dibuka. Segera Daftar dan lengkapi Formulir
                                 </p>
                                 <p data-animation="animated flipInX" data-delay="2s" style="-webkit-animation-delay:2s;animation-delay:2s">
-                                                <a href="/#pendaftaran" class="btn btn-warning nav-link">
+                                                <a href="#pendaftaran" class="btn btn-warning nav-link">
                                                     Daftar Sekarang
                                                     <span class="fa fa-chevron-down"></span>
                                                 </a>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 30 Jun 2022 pada 08.00
+-- Waktu pembuatan: 02 Jul 2022 pada 11.06
 -- Versi server: 5.7.38
 -- Versi PHP: 7.4.29
 
@@ -37,6 +37,13 @@ CREATE TABLE `kesehatan` (
   `deleted_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `kesehatan`
+--
+
+INSERT INTO `kesehatan` (`id`, `kode_peserta`, `total_nilai`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(9, 'L001', 70, '2022-07-02 10:42:11', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
 -- --------------------------------------------------------
 
 --
@@ -55,6 +62,13 @@ CREATE TABLE `kesenian` (
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `kesenian`
+--
+
+INSERT INTO `kesenian` (`id`, `kode_peserta`, `menyanyi`, `menari`, `alat_musik`, `keterampilan_lainnya`, `total_nilai`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(5, 'L001', 'a:3:{i:0;s:1:\"9\";i:1;s:1:\"9\";i:2;s:1:\"9\";}', 'a:3:{i:0;s:1:\"9\";i:1;s:1:\"9\";i:2;s:1:\"9\";}', 'a:3:{i:0;s:3:\"8.5\";i:1;s:3:\"8.5\";i:2;s:3:\"8.5\";}', 8.5, 88, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -107,6 +121,13 @@ CREATE TABLE `parade` (
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data untuk tabel `parade`
+--
+
+INSERT INTO `parade` (`id`, `kode_peserta`, `tinggi_badan`, `berat_badan`, `mata`, `bahu`, `tangan`, `kaki`, `platefoot`, `total_nilai`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(6, 'L001', 40, 30, 25, 25, 25, 25, 25, 195, '2022-07-02 10:39:20', '2022-07-02 10:39:20', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -131,6 +152,13 @@ CREATE TABLE `pbb` (
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `pbb`
+--
+
+INSERT INTO `pbb` (`id`, `kode_peserta`, `sikap_sempurna`, `sikap_hormat`, `sikap_istirahat`, `langkah_tegap`, `jalan_ditempat`, `hadap_kanan_kiri`, `hadap_serong_kanan_kiri`, `balik_kanan`, `langkah_lrfb`, `kesigapan`, `total_nilai`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(4, 'L001', 12.8, 12, 12.8, 13.5, 12, 11.3, 10.5, 13.5, 11.3, 13.5, 122.4, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -171,10 +199,8 @@ CREATE TABLE `peserta` (
 --
 
 INSERT INTO `peserta` (`id`, `kode_peserta`, `nisn`, `nama`, `jk`, `ttl`, `agama`, `alamat`, `telp`, `hp`, `email`, `asal_sekolah`, `tinggi_badan`, `berat_badan`, `golongan_darah`, `nama_ayah`, `nama_ibu`, `pekerjaan_ayah`, `pekerjaan_ibu`, `alamat_ortu`, `foto`, `status_sertifikat`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(4, 'L001', '01231234', 'Muhammad Yahya', 'L', 'Cirebon, 20 Mei 2005', 'Islam', 'Desa Setupatok', '021231234123', '089656729025', 'moch.yahya95@gmail.com', 'SMK Informatika', 165, 55, 'B', 'Somadi', 'Sakinah', 'Wirausaha', 'IRT', 'Desa Setupatok', '1656508283_f3db1e3aa79ecbf090dc.jfif', 'publish', NULL, '2022-06-29 06:13:42', NULL),
-(12, 'L002', '12344321', 'moch. yahya', 'L', 'Cirebon, 20 Mei 1999', 'Islam', 'Desa Setupatok', '', '089656729026', 'inikangyahya@gmail.com', 'SMK Informatika', 165, 60, 'B', 'Somadi', 'Sakinah', 'Polisi', 'Polwan', 'Desa Setupatok', '1656511784_e6dccb353190a2905eae.jfif', 'publish', NULL, '2022-06-29 09:04:09', NULL),
-(13, 'P001', '1234512345', 'Siti Zarah', 'P', NULL, NULL, NULL, NULL, '089656729011', 'inikang@gmail.com', 'MA Salafiyah', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '1656512361_1f5b981ece60ba540baf.jfif', 'publish', NULL, NULL, NULL),
-(14, 'L003', '1111', 'Dada', 'L', '30-02-2001', 'Islam', 'Komp', '0999', '081', 'ii@gmail.com', 'SMAN Negeri 5', 170, 70, 'O', 'U', 'I', 'U', 'I', 'Kokokko', '1656523338_880fa1df1d496d2574de.jpg', 'draft', NULL, '2022-06-29 12:21:12', NULL);
+(26, 'L001', '0123456789', 'Moh. Yahya', 'L', 'Cirebon, 20 Mei 1995', 'Islam', 'Desa Setupatok', '', '089656729025', 'moch.yahya95@gmail.com', 'SMK Informatika Al-Irsyad', 165, 55, 'B', 'Somadi', 'Sakinah', 'Buruh', 'IRT', 'Desa Setupatok', 'default.png', 'publish', NULL, '2022-07-02 09:28:52', NULL),
+(27, 'L003', '111', 'Rama', 'L', NULL, NULL, NULL, NULL, '000', 'rama@rama', 'SMAN Negeri 3', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'default.png', 'draft', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -209,6 +235,13 @@ CREATE TABLE `samapta` (
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `samapta`
+--
+
+INSERT INTO `samapta` (`id`, `kode_peserta`, `lari`, `sit_up`, `push_up`, `shuttle_run`, `total_nilai`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(6, 'L001', 15, 22, 14, 5, 56, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -330,13 +363,31 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `hak_access`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(0, '1111', '$2y$10$f1tQQs8VqHn/QRjwwooB.OyDTu83fI/QOKirAKQL29y0hcrMScCUq', 'Peserta', NULL, NULL, NULL),
 (1, 'Yahya', '$2y$10$Tw7Bx0fAAG0k9rw/BJVF2.9wheJkIJGA8vL24iVLyTwR0HWIKryGG', 'Administrator', NULL, NULL, NULL),
 (2, 'Meyta', '$2y$10$TUpdWTAs6u8OfUEwD9OSc.8eRPO/bjKDKeXqdf01qIGhpwh5TP5vC', 'Petugas', NULL, NULL, NULL),
-(3, 'Ikhlas', '$2y$10$jn7L1ti6SOTgx7jn.dogS.43UPsNgemtE69zEc1CTLqNxW8POdXNa', 'Petugas', NULL, NULL, NULL),
-(4, '01231234', '$2y$10$Tw7Bx0fAAG0k9rw/BJVF2.9wheJkIJGA8vL24iVLyTwR0HWIKryGG', 'Peserta', NULL, NULL, NULL),
-(12, '12344321', '$2y$10$Y786niTXVvqmw3s7uCBo5OaMmg1I2vXHeAPaQLXEv.7dpMowoyuOq', 'Peserta', NULL, NULL, NULL),
-(13, '1234512345', '$2y$10$DsNxH.Hy9XpuFi3sEkuvA.We1KjeVc2qEYE2jylkXKWHMNvdmIg4a', 'Peserta', NULL, NULL, NULL);
+(4, '0123456789', '$2y$10$y4yr9Sixjawpfeod4/dJReXqJ8mp7azLgeMKUvjRQUkenohbfOEe6', 'Peserta', NULL, NULL, NULL),
+(5, '111', '$2y$10$jGTD8GRCR0OgflRPwVE1muZyeVfmTE7DWG6d9EUkBEZY9H1RKuPAG', 'Peserta', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in struktur untuk tampilan `v_rekapitulasi`
+-- (Lihat di bawah untuk tampilan aktual)
+--
+CREATE TABLE `v_rekapitulasi` (
+`kode_peserta` varchar(6)
+,`nama` varchar(50)
+,`asal_sekolah` varchar(50)
+,`tinggi_badan` int(3)
+,`berat_badan` int(3)
+,`kesehatan` float
+,`kesenian` float
+,`parade` double
+,`pbb` float
+,`samapta` float
+,`wawancara` float
+,`psikotes` float
+);
 
 -- --------------------------------------------------------
 
@@ -358,6 +409,15 @@ CREATE TABLE `wawancara` (
   `updated_at` datetime DEFAULT NULL,
   `deleted_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur untuk view `v_rekapitulasi`
+--
+DROP TABLE IF EXISTS `v_rekapitulasi`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`yanudatama`@`localhost` SQL SECURITY DEFINER VIEW `v_rekapitulasi`  AS SELECT `a`.`kode_peserta` AS `kode_peserta`, `a`.`nama` AS `nama`, `a`.`asal_sekolah` AS `asal_sekolah`, `a`.`tinggi_badan` AS `tinggi_badan`, `a`.`berat_badan` AS `berat_badan`, `b`.`total_nilai` AS `kesehatan`, `c`.`total_nilai` AS `kesenian`, `d`.`total_nilai` AS `parade`, `e`.`total_nilai` AS `pbb`, `f`.`total_nilai` AS `samapta`, `g`.`total_nilai` AS `wawancara`, `h`.`nilai` AS `psikotes` FROM (((((((`peserta` `a` left join `kesehatan` `b` on((convert(`a`.`kode_peserta` using utf8mb4) = `b`.`kode_peserta`))) left join `kesenian` `c` on((`a`.`kode_peserta` = `c`.`kode_peserta`))) left join `parade` `d` on((`a`.`kode_peserta` = `d`.`kode_peserta`))) left join `pbb` `e` on((`a`.`kode_peserta` = `e`.`kode_peserta`))) left join `samapta` `f` on((`a`.`kode_peserta` = `f`.`kode_peserta`))) left join `wawancara` `g` on((`a`.`kode_peserta` = convert(`g`.`kode_peserta` using utf8)))) left join `psikotes` `h` on((convert(`a`.`kode_peserta` using utf8mb4) = `h`.`kode_peserta`))) ;
 
 --
 -- Indexes for dumped tables
@@ -445,13 +505,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `kesehatan`
 --
 ALTER TABLE `kesehatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `kesenian`
 --
 ALTER TABLE `kesenian`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
@@ -463,19 +523,19 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT untuk tabel `parade`
 --
 ALTER TABLE `parade`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `pbb`
 --
 ALTER TABLE `pbb`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `peserta`
 --
 ALTER TABLE `peserta`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT untuk tabel `psikotes`
@@ -487,13 +547,19 @@ ALTER TABLE `psikotes`
 -- AUTO_INCREMENT untuk tabel `samapta`
 --
 ALTER TABLE `samapta`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `sekolah`
 --
 ALTER TABLE `sekolah`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+
+--
+-- AUTO_INCREMENT untuk tabel `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
